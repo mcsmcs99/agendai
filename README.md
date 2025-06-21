@@ -42,12 +42,22 @@ JWT_SECRET=uma_senha_secreta_aqui
 ---
 ## Rode os seguintes comandos na sequencia
 
+# Instalar dependencias
+npm install
+
+# Gerar JWT para para colar no .env
+node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+
+# Subir ambiente de desenvolvimento
 docker-compose up -d
 
+# Acessar container da aplicação
 sudo docker exec -it agendai sh
 
+# Criar banco de dados
 npm run create-db
 
+# Rodar migrações
 npx knex migrate:latest
 
 ```

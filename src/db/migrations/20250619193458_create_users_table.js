@@ -11,8 +11,8 @@ exports.up = function(knex) {
     table.date('date_of_birth') // opcional
     table.string('document') // opcional
     table.string('password').notNullable()
-    table.boolean('status').defaultTo(true)
-    table.boolean('is_admin').defaultTo(false)
+    table.enu('status', ['ativo', 'inativo']).defaultTo('ativo')
+    table.integer('is_admin').defaultTo(0)
     table.timestamps(true, true) // created_at e updated_at com defaults
   })
 }
